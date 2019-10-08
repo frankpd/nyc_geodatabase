@@ -6,7 +6,6 @@ import psycopg2, sqlite3, sys, os
 os.chdir('..')
 
 #Change these values as needed
-
 sqdb='nyc_gdb_jan2019.sqlite' #sqlite db name
 sqlike='%2016biz%' #used to do a pattern search for table names
 pgdb='libpub' #postgres db name
