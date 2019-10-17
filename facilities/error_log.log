@@ -1,0 +1,124 @@
+2019-10-04 16:56:05,058 - __main__ - ERROR - Unexpected exception occurred
+Traceback (most recent call last):
+  File "<ipython-input-25-6f1b0cb51b4b>", line 12, in make_facilities_shapefiles
+    counties = gpd.read_file(counties_path, driver="GeoJSON")
+NameError: name 'counties_path' is not defined
+2019-10-04 16:56:05,058 - __main__ - ERROR - Unexpected exception occurred
+Traceback (most recent call last):
+  File "<ipython-input-25-6f1b0cb51b4b>", line 12, in make_facilities_shapefiles
+    counties = gpd.read_file(counties_path, driver="GeoJSON")
+NameError: name 'counties_path' is not defined
+2019-10-04 16:58:24,035 - __main__ - ERROR - Unexpected exception occurred
+Traceback (most recent call last):
+  File "<ipython-input-30-6f1b0cb51b4b>", line 22, in make_facilities_shapefiles
+    name = re.sub("_geo", "", gdf)
+NameError: name 're' is not defined
+2019-10-04 16:58:24,035 - __main__ - ERROR - Unexpected exception occurred
+Traceback (most recent call last):
+  File "<ipython-input-30-6f1b0cb51b4b>", line 22, in make_facilities_shapefiles
+    name = re.sub("_geo", "", gdf)
+NameError: name 're' is not defined
+2019-10-04 16:59:06,243 - __main__ - ERROR - Unexpected exception occurred
+Traceback (most recent call last):
+  File "<ipython-input-33-6f1b0cb51b4b>", line 22, in make_facilities_shapefiles
+    name = re.sub("_geo", "", gdf)
+  File "C:\ProgramData\Anaconda3\lib\re.py", line 191, in sub
+    return _compile(pattern, flags).sub(repl, string, count)
+TypeError: expected string or bytes-like object
+2019-10-04 16:59:06,243 - __main__ - ERROR - Unexpected exception occurred
+Traceback (most recent call last):
+  File "<ipython-input-33-6f1b0cb51b4b>", line 22, in make_facilities_shapefiles
+    name = re.sub("_geo", "", gdf)
+  File "C:\ProgramData\Anaconda3\lib\re.py", line 191, in sub
+    return _compile(pattern, flags).sub(repl, string, count)
+TypeError: expected string or bytes-like object
+2019-10-04 16:59:27,463 - __main__ - ERROR - Unexpected exception occurred
+Traceback (most recent call last):
+  File "<ipython-input-35-07be71a02e45>", line 22, in make_facilities_shapefiles
+    name = re.sub("_geo", "", gdf())
+TypeError: 'GeoDataFrame' object is not callable
+2019-10-04 16:59:27,463 - __main__ - ERROR - Unexpected exception occurred
+Traceback (most recent call last):
+  File "<ipython-input-35-07be71a02e45>", line 22, in make_facilities_shapefiles
+    name = re.sub("_geo", "", gdf())
+TypeError: 'GeoDataFrame' object is not callable
+2019-10-04 17:02:03,492 - __main__ - ERROR - Unexpected exception occurred
+Traceback (most recent call last):
+  File "fiona/ogrext.pyx", line 1046, in fiona.ogrext.WritingSession.start
+  File "fiona/_err.pyx", line 259, in fiona._err.exc_wrap_pointer
+fiona._err.CPLE_AppDefinedError: Failed to create file S:\LibShare\Shared\Divisions\Graduate\GEODATA\nyc_geodatabase\scripts\facilities\output\hospitals_october2019.shp: No such file or directory
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<ipython-input-38-7513cb11b8a0>", line 29, in make_facilities_shapefiles
+    folder, f"{gdf.name}_{monthYear.lower()}.shp"
+  File "C:\ProgramData\Anaconda3\lib\site-packages\geopandas\geodataframe.py", line 413, in to_file
+    to_file(self, filename, driver, schema, **kwargs)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\geopandas\io\file.py", line 116, in to_file
+    schema=schema, **kwargs) as colxn:
+  File "C:\ProgramData\Anaconda3\lib\site-packages\fiona\env.py", line 396, in wrapper
+    return f(*args, **kwargs)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\fiona\__init__.py", line 263, in open
+    **kwargs)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\fiona\collection.py", line 162, in __init__
+    self.session.start(self, **kwargs)
+  File "fiona/ogrext.pyx", line 1054, in fiona.ogrext.WritingSession.start
+fiona.errors.DriverIOError: Failed to create file S:\LibShare\Shared\Divisions\Graduate\GEODATA\nyc_geodatabase\scripts\facilities\output\hospitals_october2019.shp: No such file or directory
+2019-10-04 17:02:03,492 - __main__ - ERROR - Unexpected exception occurred
+Traceback (most recent call last):
+  File "fiona/ogrext.pyx", line 1046, in fiona.ogrext.WritingSession.start
+  File "fiona/_err.pyx", line 259, in fiona._err.exc_wrap_pointer
+fiona._err.CPLE_AppDefinedError: Failed to create file S:\LibShare\Shared\Divisions\Graduate\GEODATA\nyc_geodatabase\scripts\facilities\output\hospitals_october2019.shp: No such file or directory
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<ipython-input-38-7513cb11b8a0>", line 29, in make_facilities_shapefiles
+    folder, f"{gdf.name}_{monthYear.lower()}.shp"
+  File "C:\ProgramData\Anaconda3\lib\site-packages\geopandas\geodataframe.py", line 413, in to_file
+    to_file(self, filename, driver, schema, **kwargs)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\geopandas\io\file.py", line 116, in to_file
+    schema=schema, **kwargs) as colxn:
+  File "C:\ProgramData\Anaconda3\lib\site-packages\fiona\env.py", line 396, in wrapper
+    return f(*args, **kwargs)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\fiona\__init__.py", line 263, in open
+    **kwargs)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\fiona\collection.py", line 162, in __init__
+    self.session.start(self, **kwargs)
+  File "fiona/ogrext.pyx", line 1054, in fiona.ogrext.WritingSession.start
+fiona.errors.DriverIOError: Failed to create file S:\LibShare\Shared\Divisions\Graduate\GEODATA\nyc_geodatabase\scripts\facilities\output\hospitals_october2019.shp: No such file or directory
+2019-10-04 17:02:27,382 - __main__ - ERROR - Unexpected exception occurred
+Traceback (most recent call last):
+  File "<ipython-input-38-7513cb11b8a0>", line 35, in make_facilities_shapefiles
+    feature_name=f"{gdf.name}_{monthYear.lower()}.shp",
+TypeError: write_feature_report() missing 1 required positional argument: 'path'
+2019-10-04 17:02:27,382 - __main__ - ERROR - Unexpected exception occurred
+Traceback (most recent call last):
+  File "<ipython-input-38-7513cb11b8a0>", line 35, in make_facilities_shapefiles
+    feature_name=f"{gdf.name}_{monthYear.lower()}.shp",
+TypeError: write_feature_report() missing 1 required positional argument: 'path'
+2019-10-04 17:05:58,396 - __main__ - ERROR - Unexpected exception occurred
+Traceback (most recent call last):
+  File "<ipython-input-41-ba5ca97cf1d4>", line 22, in make_facilities_shapefiles
+    name = re.sub("_geo", "", gdf.name)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\pandas\core\generic.py", line 5179, in __getattr__
+    return object.__getattribute__(self, name)
+AttributeError: 'GeoDataFrame' object has no attribute 'name'
+2019-10-04 17:05:58,396 - __main__ - ERROR - Unexpected exception occurred
+Traceback (most recent call last):
+  File "<ipython-input-41-ba5ca97cf1d4>", line 22, in make_facilities_shapefiles
+    name = re.sub("_geo", "", gdf.name)
+  File "C:\ProgramData\Anaconda3\lib\site-packages\pandas\core\generic.py", line 5179, in __getattr__
+    return object.__getattribute__(self, name)
+AttributeError: 'GeoDataFrame' object has no attribute 'name'
+2019-10-10 11:24:03,882 - __main__ - ERROR - Unexpected exception occurred
+Traceback (most recent call last):
+  File "<ipython-input-14-2f736ad16bb6>", line 22, in make_facilities_shapefiles
+    print(f"Created point shapefile for", shp_geo.shape[0], gdf.name)
+NameError: name 'shp_geo' is not defined
+2019-10-17 10:49:09,940 - __main__ - ERROR - Could not create geodataframe from hospitals
+Traceback (most recent call last):
+  File "<ipython-input-9-5ab35f3a22a7>", line 2, in <module>
+    hospitals_geo = create_point_shapes(hospitals)
+NameError: name 'hospitals' is not defined
