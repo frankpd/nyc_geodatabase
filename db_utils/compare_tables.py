@@ -9,14 +9,14 @@ os.chdir('..')
 #Modify these values to test different sources
 #db1 should be the original db
 db1='nyc_gdb_jan2019.sqlite' 
-tab1='b_zctas_2016biz_ind'
-uid1='zcta5'
-col1='n00'
+tab1='a_colleges'
+uid1='idagency'
+col1='zipcode'
 #db2 should be the test database
-db2=os.path.join('census_zbp/outputs/testdb.sqlite')
-tab2='zbp2016ind'
-uid2='zcta5'
-col2='n00'
+db2=os.path.join('facilities/outputs/facilities.sqlite')
+tab2='a_colleges'
+uid2='idagency'
+col2='zipcode'
 
 def leftjoin(left_id,left_t,right_id,right_t):
     lquery='''SELECT a.{0}
@@ -38,7 +38,7 @@ cur.execute("ATTACH '{}' AS db2;".format(db2))
 #Count and compare columns
 cur.execute('PRAGMA table_info({});'.format(tab1))
 cols1=len(cur.fetchall())
-cur.execute('PRAGMA table_info({});'.format(tab2))
+cur.execute('PRAGMA db2.table_info({});'.format(tab2))
 cols2=len(cur.fetchall())
 
 if cols1==cols2:
