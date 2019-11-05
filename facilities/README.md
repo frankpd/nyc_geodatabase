@@ -1,6 +1,6 @@
 # NYC Facilities Data Downloader
 
-This folder contains two Python / Pandas notebooks that each pull data from the New York City Department of Planning Facilities dataset and create spatial features for five facility categories.  The script retrieves the full facilities dataset from an API and dumps it to a json file, so that if the script has to be rerun from the beginning the API doesn't have to be called again.
+This folder contains two Python / Pandas notebooks that each pull data from the New York City Department of Planning Facilities dataset and create spatial features for five facility categories.  The script retrieves the full facilities dataset from an API and dumps it to a JSON file, so that if the script has to be rerun from the beginning the API doesn't have to be called again.
 
 Each Python script has no input files.  Five tables are generated from data pulled from the API: hospitals, colleges, libraries, public schools and private schools.  The 'Facilities to Shapefiles' script takes these five data frames and creates an ESRI Shapefile for it which is saved to disk in the 'outputs' folder. 
 
