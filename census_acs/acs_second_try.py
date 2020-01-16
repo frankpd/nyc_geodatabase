@@ -5,8 +5,10 @@ year='2017'
 dsource='acs'
 dsource2='acs5'
 dname='profile'
-state='11'
-geo='public use microdata area'
+#state='11'
+state='36'
+#geo='public use microdata area'
+geo='zip code tabulation area'
 
 base_url = f'https://api.census.gov/data/{year}/{dsource}/{dsource2}/{dname}'
 
@@ -61,15 +63,25 @@ reqvars[0].insert(0,'GEO_ID')
 
 datalist=[]
 
-for i, v in enumerate(reqvars):
-    batchcols=','.join(v)
-    data_url = f'{base_url}?get={batchcols}&for={geo}:*&in=state:{state}'
-    response=requests.get(data_url)
-    data=response.json()
-    for i2, v2 in enumerate(data):
-        if i == 0:
-            datalist.append(v2[:-2])
-        else:
-            for item in v2[:-2]:
-                datalist[i2].append(item)
+zctas=['10034','10040']
+
+for z in zctas:
+    ziplist=[]
+    for i, v in enumerate(reqvars):
+        batchcols=','.join(v)
+        data_url = f'{base_url}?get={batchcols}&for={geo}:{z}'
+        response=requests.get(data_url)
+        data=response.json()
+        for i2, v2 in enumerate(data):
+            if i == 0:
+                ziplist.append(v2[:-1])
+            else:
+                for x in v2[:-1]:
+                    ziplist[i2].append(x)
+    if len(datalist)==0:
+        datalist.append(ziplist[0])
+        datalist.append(ziplist[1])
+    else:
+        datalist.append(ziplist[1])
+
             
