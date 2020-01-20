@@ -1,3 +1,6 @@
+# This is an early test script, written to get the basic looping 
+# mechanisms correct. Use the jupyter notebook for the process,
+# *not* this script.
 
 import os, requests, pandas as pd
 
