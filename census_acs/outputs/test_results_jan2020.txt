@@ -1,0 +1,53 @@
+Frank Donnelly
+January 21, 2020
+
+The following tests were performed to verify accuracy of new NYC Geodatabase scripts. API data tested against NYC Geodatabase Jan 2019 edition using compare_tables.py from DB Utils scripts. Tables also visually inspected.
+
+# Test 1
+
+api: ACS 2017 pumas
+nycgdb: ACS 2017 pumas
+table: acs1
+vars: hshd01_e, lang03_pm, emp01_e, inc13_pm
+result: matched, both tables have 251 columns and 55 rows, no discrepancy between variables
+
+# Test 2
+
+api: ACS 2017 pumas
+nycgdb: ACS 2017 pumas
+table: acs2
+vars: hoc01_e, rent10_pm, sxag01_e, vote01_pm
+result: matched, both tables have 239 columns and 55 rows, no discrepancy between variables
+
+# Test 3
+
+api: ACS 2017 tracts
+nycgdb: ACS 2017 tracts
+table: acs1
+vars: hshd01_e, lang03_pm, emp01_e, inc13_pm
+result: matched, both tables have 251 columns and 2,167 rows, no discrepancy between variables
+
+# Test 4
+
+api: ACS 2017 pumas
+nycgdb: ACS 2017 pumas
+table: acs2
+vars: hoc01_e, rent10_pm, sxag01_e, vote01_pm
+result: matched, both tables have 239 columns and 2,167 rows, no discrepancy between variables
+
+# Test 5
+
+api: ACS 2017 zctas
+nycgdb: ACS 2017 zctas
+table: acs1
+vars: hshd01_e, lang03_pm, emp01_e, inc13_pm
+result: matched, both tables have 251 columns and 215 rows, no discrepancy between variables
+
+# Test 6
+
+api: ACS 2017 pumas
+nycgdb: ACS 2017 pumas
+table: acs2
+vars: hoc01_e, rent10_pm, sxag01_e, vote01_pm
+result: matched, both tables have  columns and  rows, no discrepancy between variables
+
