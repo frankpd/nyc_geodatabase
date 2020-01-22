@@ -59,11 +59,27 @@ result: matched, both tables have  columns and  rows, no discrepancy between var
 
 api: ACS 2018 DP02 - DP03 variables and labels
 nycgdb: ACS 2017 acs1 table
-result: There were 80 variable labels that did not match, and thus required manual update in the acs_variables spreadsheet. The majority were due to differences in punctuation (for example - DP02_0053E Nursery school, preschool in 2018 vs Nursery school preschool in 2017) or change ftom 2017 dollars values to 2018 dollar values. Two exceptions were DP02_0066 and 0067, db variables EDU09 and EDU10. In the past the census reported just the percentage and pct MOE of the population 25 and over who had a high school or bachelor's degree respectively, and the estimate and est MOEs were left blank. In 2018, they started providing the actual estimate for both, in conjunction with the pct. As such, the name of the label hasd changed to denote that this variable isn't just for the percentage. 
+result: There were 80 variable labels that did not match, and thus required manual update in the acs_variables spreadsheet. The majority were due to differences in punctuation (for example - DP02_0053E Nursery school, preschool in 2018 vs Nursery school preschool in 2017) or change ftom 2017 dollars values to 2018 dollar values. Two exceptions were DP02_0066 and 0067, db variables EDU09 and EDU10. In the past the census reported just the percentage and pct MOE of the population 25 and over who had a high school or bachelor's degree respectively, and the estimate and est MOEs were left blank. In 2018, they started providing the actual estimate for both, in conjunction with the pct. As such, the name of the label has changed to denote that this variable isn't just for the percentage. Data types for the estimate and est MOE columns also changed from float to integer. 
 
 ## Test 2
 
 api: ACS 2018 DP04 - DP05 variables and labels
 nycgdb: ACS 2017 acs2 table
 result: There were 24 variable labels that did not match, and thus required manual update in the acs_variables spreadsheet. All of these were due to differences in punctuation, i.e. the insertion of commas.
+
+## Test 3
+
+api: ACS 2018 pumas
+nycgdb: ACS 2017 pumas
+table: acs1
+vars: hshd01_e, emp08_e (households and civilian labor force)
+result: matched, both tables have 251 columns and 55 rows, no unreasonable differences between values in different years
+
+## Test 4
+
+api: ACS 2018 pumas
+nycgdb: ACS 2017 pumas
+table: acs2
+vars: hoc01_e, sxag01_e (housing units and total population)
+result: matched, both tables have 239 columns and 55 rows, no unreasonable differences between values in different years
  
