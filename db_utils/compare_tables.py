@@ -9,14 +9,14 @@ os.chdir('..')
 #Modify these values to test different sources
 #db1 should be the original db
 db1='nyc_gdb_jan2019.sqlite' 
-tab1='b_zctas_2016biz_ind'
-uid1='zcta5'
-col1='n00'
+tab1='b_pumas_2017acs2'
+uid1='geoid2'
+col1='sxag01_e'
 #db2 should be the test database
-db2=os.path.join('census_zbp/outputs/testdb.sqlite')
-tab2='zbp2016ind'
-uid2='zcta5'
-col2='n00'
+db2=os.path.join('census_acs/outputs/testdb.sqlite')
+tab2='pumas_2018acs2'
+uid2='geoid2'
+col2='sxag01_e'
 
 def leftjoin(left_id,left_t,right_id,right_t):
     lquery='''SELECT a.{0}
@@ -63,7 +63,7 @@ else:
 
 #Compare current value to previous year    
 jquery='''SELECT a.{0},a.{2},b.{3},b.{3}-a.{2} AS diff, 
-((CAST (b.{3} AS REAL)-CAST (a.{2} AS REAL)) /CAST (a.{2} AS REAL)) * 100 as pct_chng
+ROUND(((CAST (b.{3} AS REAL)-CAST (a.{2} AS REAL)) /CAST (a.{2} AS REAL))* 100,1) as pct_chng
 FROM {4} a, db2.{5} b
 WHERE a.{0}=b.{1}
 ORDER BY diff DESC;'''.format(uid1,uid2,col1,col2,tab1,tab2)
