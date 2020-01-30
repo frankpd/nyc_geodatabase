@@ -82,4 +82,36 @@ nycgdb: ACS 2017 pumas
 table: acs2
 vars: hoc01_e, sxag01_e (housing units and total population)
 result: matched, both tables have 239 columns and 55 rows, no unreasonable differences between values in different years
+
+## Test 5
+
+api: ACS 2018 tracts
+nycgdb: ACS 2017 tracts
+table: acs1
+vars: hshd01_e, emp08_e (households and civilian labor force)
+result: matched, both tables have 251 columns and 2,167 rows, no unreasonable differences between values in different years
+
+## Test 6
+
+api: ACS 2018 tracts
+nycgdb: ACS 2017 tracts
+table: acs2
+vars: hoc01_e, sxag01_e (housing units and total population)
+result: matched, both tables have 239 columns and 2,167 rows, no unreasonable differences between values in different years
+
+## Test 7
+
+api: ACS 2018 zctas
+nycgdb: ACS 2017 zctas
+table: acs1
+vars: hshd01_e, emp08_e (households and civilian labor force)
+result: matched, both tables have 251 columns and 215 rows, no unreasonable differences between values in different years
+
+## Test 8
+
+api: ACS 2018 zctas
+nycgdb: ACS 2017 zctas
+table: acs2
+vars: hoc01_e, sxag01_e (housing units and total population)
+result: matched, both tables have 239 columns and 215 rows, no unreasonable differences between values in different years
  
