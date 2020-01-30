@@ -8,14 +8,21 @@ os.chdir('..')
 #MODIFY these values to pull from the right sources
 #db1 should be the original db
 db1='nyc_gdb_jan2020_DRAFT.sqlite'
-tabdrop=['b_zctas_2016biz_emp','b_zctas_2016biz_ind','b_zctas_2016biz_indcodes']
+tabdrop=['b_pumas_2017acs1','b_pumas_2017acs2',
+         'b_zctas_2017acs1','b_zctas_2017acs2',
+         'b_tracts_2017acs1','b_tracts_2017acs2',
+         'b_2017acs_lookup']
 
 #db2 should be the test database
 #Keys (k) are the test db table names, values (v) will be the new table names
-db2=os.path.join('census_zbp','outputs','testdb.sqlite')
-tabadd={'zbp2017emp':'b_zctas_2017biz_emp',
-        'zbp2017ind': 'b_zctas_2017biz_ind',
-        'zbp2017indcodes': 'b_zctas_2017biz_indcodes'}
+db2=os.path.join('census_acs','outputs','testdb.sqlite')
+tabadd={'pumas_2018acs1': 'b_pumas_2018acs1',
+        'pumas_2018acs2': 'b_pumas_2018acs2',
+        'zctas_2018acs1': 'b_zctas_2018acs1',
+        'zctas_2018acs2': 'b_zctas_2018acs2',
+        'tracts_2018acs1': 'b_tracts_2018acs1',
+        'tracts_2018acs2': 'b_tracts_2018acs2',
+        'acslookup2018': 'b_2018acs_lookup'}
 
 def table_exists(dbalias,dbname,tablist):
     for t in tablist:
