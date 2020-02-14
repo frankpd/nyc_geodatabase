@@ -1,5 +1,6 @@
-#Copies tables and data from a SQLite database and recreates them
-#in a PostgreSQL database
+#Copies tables from a Spatialite database that have geometry stored
+#in the final column, drops that geometry, and writes the rest to
+#a PostgreSQL database 
 
 import psycopg2, sqlite3, sys, os
 
@@ -47,9 +48,23 @@ conpg = None
 for table in tabnames:
     cursq.execute("SELECT sql FROM sqlite_master WHERE type='table' AND name = '{}';".format(table))
     create = cursq.fetchone()[0]
+    
+    #Break create string to list, delete last item (assumed to be geometry)
+    #Recreate string and statement ending
+    createlist = create.split(',')
+    lastitem=createlist[-1]
+    del createlist[-1]
+    print("Removed",lastitem)
+    newcreate=','.join(createlist)
+    newcreate=newcreate+');'
+    
+    #After grabbing the rows drop the geometry
     cursq.execute("SELECT * FROM {};".format(table))
     rows=cursq.fetchall()
-    colcount=len(rows[0])
+    newrows=[]
+    for r in rows:
+        newrows.append(r[:-1])
+    colcount=len(newrows[0])
     pholder='%s,'*colcount
     newholder=pholder[:-1]
 
@@ -61,8 +76,8 @@ for table in tabnames:
         curpg.execute("SET search_path TO {};".format(pgschema))
         conpg.commit()
         curpg.execute("DROP TABLE IF EXISTS {};".format(table))
-        curpg.execute(create)
-        curpg.executemany("INSERT INTO {} VALUES ({});".format(table, newholder),rows)
+        curpg.execute(newcreate)
+        curpg.executemany("INSERT INTO {} VALUES ({});".format(table, newholder),newrows)
         conpg.commit()
         print('Created', table, 'with', curpg.rowcount,'records') 
     except psycopg2.DatabaseError as e:

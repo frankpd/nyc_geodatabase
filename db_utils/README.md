@@ -6,4 +6,6 @@ These scripts are used for QC and transferring tables from one database to anoth
 
 2. sqlite_to_sqlite: once data is inspected and verified, this script is used to copy tables from the test database to what will be the next version of the nyc_gdb, rename the tables, and drop the tables from the previous year.
 
-3. sqlite_to_postgres: the final step in the data acquisition, processing, checking, and publishing process is to archive the data on our local network database. This script copies data from the SQLite nyc_gdb to PostgreSQL.   
+3. sqlite_to_postgres: the final step in the data acquisition, processing, checking, and publishing process is to archive the data on our local network database. This script copies data tables from the SQLite nyc_gdb to PostgreSQL. 
+
+4. sqlite_to_postgres_minus_geometry: a variation of the previous script, used for features that have geometry. We never found a good solution for transferring Spatialite geometry to PostGIS, so instead this script omits the geometry columns when copying the tables. Geometry for point features is created in PostGIS manually after import, using numeric coordinate columns. An important prerequisite: this script assumes that geometry is stored in the last column of the table, and won't work otherwise. 
