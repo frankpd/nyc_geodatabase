@@ -8,15 +8,15 @@ os.chdir('..')
 
 #Modify these values to test different sources
 #db1 should be the original db
-db1='nyc_gdb_jan2019.sqlite' 
-tab1='b_zctas_2016biz_ind'
+db1='nyc_gdb_jan2020.sqlite' 
+tab1='b_zctas_2017biz_emp'
 uid1='zcta5'
-col1='n00'
+col1='estab'
 #db2 should be the test database
 db2=os.path.join('census_zbp','outputs','testdb.sqlite')
-tab2='zbp2017ind'
+tab2='zbp2018emp'
 uid2='zcta5'
-col2='n00'
+col2='estab'
 
 def leftjoin(left_id,left_t,right_id,right_t):
     lquery='''SELECT a.{0}

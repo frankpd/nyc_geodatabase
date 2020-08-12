@@ -7,15 +7,15 @@ os.chdir('..')
 
 #MODIFY these values to pull from the right sources
 #db1 should be the original db
-db1='nyc_gdb_jan2020_DRAFT.sqlite'
-tabdrop=['b_zctas_2016biz_emp','b_zctas_2016biz_ind','b_zctas_2016biz_indcodes']
+db1='nyc_gdb_aug2020_DRAFT.sqlite'
+tabdrop=['b_zctas_2017biz_emp','b_zctas_2017biz_ind','b_zctas_2017biz_indcodes']
 
 #db2 should be the test database
 #Keys (k) are the test db table names, values (v) will be the new table names
 db2=os.path.join('census_zbp','outputs','testdb.sqlite')
-tabadd={'zbp2017emp':'b_zctas_2017biz_emp',
-        'zbp2017ind': 'b_zctas_2017biz_ind',
-        'zbp2017indcodes': 'b_zctas_2017biz_indcodes'}
+tabadd={'zbp2018emp':'b_zctas_2018biz_emp',
+        'zbp2018ind': 'b_zctas_2018biz_ind',
+        'zbp2018indcodes': 'b_zctas_2018biz_indcodes'}
 
 def table_exists(dbalias,dbname,tablist):
     for t in tablist:
